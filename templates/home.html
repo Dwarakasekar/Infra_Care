@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Home</title>
+</head>
+<body>
+    <nav>
+        <ul class="menu">
+            <li class="logo">
+                <!-- change the name of logo according to your name of image (mani/vengu) -->
+                <a href="#"><img src="{% static 'imgs/logo3.png' %}" alt="Infra-care Logo" style="height: 40px;"></a>
+            </li>
+            <li class="item"><a href="/Home">Home</a></li>
+            <li class="item"><a href="/About">About</a></li>
+            <li class="item"><a href="">Blogs</a></li>
+            <li class="item">
+                <select name="Services" onchange="window.location.href=this.value;">
+                    <option value="" disabled selected>Select Service</option>
+                    <option value="{% url 'client' %}">Client</option>
+                    <option value="{% url 'org' %}">Org</option>
+                </select>                
+            </li>
+            
+            <li class="item"><a href="">Crew</a></li>
+            <!-- <li class="toggle" id="menu-toggle"><span class="bars"></span></li> -->
+            <li class="item button"><a href="">Log In</a></li>
+            <li class="toggle" id="menu-toggle">
+                <!-- Hamburger Icon -->
+                <span class="bars"></span>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="section-1">
+            <img src="{% static 'imgs/home_eg.avif' %}" alt="background-img">
+            <div class="div-1">
+                <h1><strong>WHERE INNOVATION MEETS INFRASTRUCTURE CARE</strong></h1>
+            </div>
+    </section>
+
+    <section class="solution">
+        <p>As a diversified construction and construction materials company and a full-suite provider in the transportation, water infrastructure and mineral exploration markets, Granite delivers Infrastructure Solutions for public and private clients throughout the world.</p>
+    </section>
+
+    <section class="ISR">
+        <div class="content">
+            <img src="{% static 'imgs/pic.jpg' %}" alt="ISR Image">
+            <div class="heading">
+                <p><strong>Infra Sustain Realm Org</strong></p>
+            </div>
+            <p>ISR (Infra Sustain Realm) aims to revolutionize the construction industry by integrating AI/ML-powered tools that promote sustainable practices, biodiversity conservation, and climate resilience.</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+    </section>
+</body>
+</html>

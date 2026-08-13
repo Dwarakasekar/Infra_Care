@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disaster Preparedness Toolkit | InfraCare</title>
+    <style>
+        :root {
+            --primary: #1a3b3a;
+            --secondary: #c9e8e0;
+            --accent: #2a7fff;
+            --alert: #d32f2f;
+            --safe: #388e3c;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        
+        .toolkit-section {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .feature-card {
+            background: var(--secondary);
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .alert-badge {
+            display: inline-block;
+            background-color: var(--alert);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+        }
+        
+        .safe-badge {
+            background-color: var(--safe);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 0.5rem;
+        }
+        
+        .btn:hover {
+            opacity: 0.9;
+        }
+        
+        .protocol-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .protocol-item {
+            background: #f9f9f9;
+            margin: 0.5rem 0;
+            padding: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .protocol-item:hover {
+            background: #f0f0f0;
+        }
+        
+        .hidden-content {
+            display: none;
+            padding: 1rem;
+            background: white;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Disaster Preparedness & Response Toolkit</h1>
+            <p>Protecting your construction site against natural disasters</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Real-Time Weather Monitoring -->
+        <div class="toolkit-section">
+            <h2>🌦️ Real-Time Weather Monitoring</h2>
+            <div class="feature-card">
+                <h3>Live Weather Alerts</h3>
+                <p>Get instant notifications about hazardous weather conditions:</p>
+                <div id="weather-alerts">
+                    <!-- Dynamically populated by JavaScript -->
+                    <div class="alert-badge">Heavy Rain</div>
+                    <div class="alert-badge">Flood Warning</div>
+                    <div class="alert-badge safe-badge">All Clear</div>
+                </div>
+                <button class="btn" id="refresh-weather">Refresh Alerts</button>
+            </div>
+        </div>
+
+        <!-- Location-Based Response -->
+        <div class="toolkit-section">
+            <h2>📍 Location-Based Disaster Response</h2>
+            <div class="feature-card">
+                <h3>Site Location Services</h3>
+                <div id="location-container">
+                    <button class="btn" id="get-location">Detect Site Location</button>
+                    <div id="location-result" style="margin-top: 1rem;"></div>
+                </div>
+                <div id="nearby-resources" style="margin-top: 1rem;"></div>
+            </div>
+        </div>
+
+        <!-- Emergency Help Centers -->
+        <div class="toolkit-section">
+            <h2>🚨 Nearby Emergency Help</h2>
+            <div class="feature-card">
+                <h3>Nearest Emergency Services</h3>
+                <div id="emergency-services">
+                    <p>Loading nearby resources...</p>
+                </div>
+                <button class="btn" id="refresh-services">Refresh Services</button>
+            </div>
+        </div>
+
+        <!-- Disaster-Ready Materials -->
+        <div class="toolkit-section">
+            <h2>📦 Disaster-Ready Materials</h2>
+            <div class="feature-card">
+                <h3>Recommended Materials</h3>
+                <div id="material-recommendations">
+                    <p>Based on your location and current alerts, we recommend:</p>
+                    <ul>
+                        <li>Water-resistant concrete (for flood-prone areas)</li>
+                        <li>Seismic reinforcement brackets (for earthquake zones)</li>
+                        <li>Corrosion-resistant steel (for coastal areas)</li>
+                    </ul>
+                </div>
+                <a href="#" class="btn">View Full Material List</a>
+            </div>
+        </div>
+
+        <!-- Response Protocols -->
+        <div class="toolkit-section">
+            <h2>🧾 Response Protocol Guidelines</h2>
+            <div class="feature-card">
+                <h3>Emergency Procedures</h3>
+                <ul class="protocol-list">
+                    <li class="protocol-item" onclick="toggleContent('pre-disaster')">
+                        <strong>Pre-Disaster Preparation</strong>
+                        <div id="pre-disaster" class="hidden-content">
+                            <p>1. Conduct safety training for all workers</p>
+                            <p>2. Secure loose materials and equipment</p>
+                            <p>3. Identify safe zones on site</p>
+                            <p>4. Backup important project data</p>
+                        </div>
+                    </li>
+                    <li class="protocol-item" onclick="toggleContent('during-disaster')">
+                        <strong>During Disaster Actions</strong>
+                        <div id="during-disaster" class="hidden-content">
+                            <p>1. Move all personnel to designated safe zones</p>
+                            <p>2. Shut off utilities if safe to do so</p>
+                            <p>3. Monitor official emergency channels</p>
+                            <p>4. Account for all team members</p>
+                        </div>
+                    </li>
+                    <li class="protocol-item" onclick="toggleContent('post-disaster')">
+                        <strong>Post-Disaster Recovery</strong>
+                        <div id="post-disaster" class="hidden-content">
+                            <p>1. Conduct site safety assessment</p>
+                            <p>2. Document damage for insurance</p>
+                            <p>3. Prioritize structural repairs</p>
+                            <p>4. Implement salvage plan for materials</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Alert Communication -->
+        <div class="toolkit-section">
+            <h2>💬 Multi-Level Alert System</h2>
+            <div class="feature-card">
+                <h3>Alert Distribution</h3>
+                <p>Send emergency alerts to all stakeholders:</p>
+                <div id="alert-recipients">
+                    <label><input type="checkbox" checked> Organization</label>
+                    <label><input type="checkbox" checked> Clients</label>
+                    <label><input type="checkbox" checked> Production Team</label>
+                </div>
+                <button class="btn" id="test-alert">Send Test Alert</button>
+            </div>
+        </div>
+
+        <!-- Daily Tracker -->
+        <div class="toolkit-section">
+            <h2>✅ Disaster Preparedness Tracker</h2>
+            <div class="feature-card">
+                <h3>14-Day Safety Checklist</h3>
+                <div id="safety-tracker">
+                    <table style="width:100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background-color: var(--primary); color: white;">
+                                <th style="padding: 8px; text-align: left;">Task</th>
+                                <th style="padding: 8px; text-align: center;">Status</th>
+                                <th style="padding: 8px; text-align: center;">Due</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #ddd;">
+                                <td style="padding: 8px;">Site safety inspection</td>
+                                <td style="text-align: center;"><span class="safe-badge" style="padding: 2px 5px;">Completed</span></td>
+                                <td style="text-align: center;">Today</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #ddd;">
+                                <td style="padding: 8px;">Emergency drill</td>
+                                <td style="text-align: center;"><span class="alert-badge" style="padding: 2px 5px;">Overdue</span></td>
+                                <td style="text-align: center;">2 days ago</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button class="btn" style="margin-top: 1rem;">View Full Tracker</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle protocol content
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Location detection
+        document.getElementById('get-location').addEventListener('click', function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        const locationResult = document.getElementById('location-result');
+                        locationResult.innerHTML = `
+                            <p>Site located at:</p>
+                            <p>Latitude: ${position.coords.latitude.toFixed(4)}</p>
+                            <p>Longitude: ${position.coords.longitude.toFixed(4)}</p>
+                        `;
+                        
+                        // Simulate fetching nearby resources
+                        setTimeout(() => {
+                            document.getElementById('nearby-resources').innerHTML = `
+                                <h4>Nearby Resources:</h4>
+                                <ul>
+                                    <li>🏥 Hospital: 2.3km away</li>
+                                    <li>🚒 Fire Station: 5.1km away</li>
+                                    <li>🚓 Police Station: 3.7km away</li>
+                                </ul>
+                            `;
+                        }, 1000);
+                    },
+                    function(error) {
+                        alert('Error getting location: ' + error.message);
+                    }
+                );
+            } else {
+                alert('Geolocation is not supported by your browser');
+            }
+        });
+
+        // Test alert button
+        document.getElementById('test-alert').addEventListener('click', function() {
+            alert('Test alert sent to selected recipients!');
+        });
+
+        // Refresh weather button
+        document.getElementById('refresh-weather').addEventListener('click', function() {
+            const alerts = ['Heavy Rain', 'High Winds', 'All Clear', 'Heat Warning'];
+            const randomAlert = alerts[Math.floor(Math.random() * alerts.length)];
+            
+            const weatherAlerts = document.getElementById('weather-alerts');
+            weatherAlerts.innerHTML = `
+                <div class="alert-badge ${randomAlert === 'All Clear' ? 'safe-badge' : ''}">
+                    ${randomAlert}
+                </div>
+                <p>Last updated: ${new Date().toLocaleTimeString()}</p>
+            `;
+        });
+    </script>
+</body>
+</html>

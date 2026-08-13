@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Project</title>
+    <link rel="stylesheet" href="{% static 'css/track.css' %}">
+    <script defer src="{% static 'js/track.js' %}"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Track Construction Project</h1>
+        </header>
+        
+        <section class="form-section">
+            <form id="projectForm">
+                <div class="form-group">
+                    <label for="location">Project Location/Area:</label>
+                    <input type="text" id="location" name="location" placeholder="Enter location" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="materials">Sustainable Materials:</label>
+                    <input type="text" id="materials" name="materials" placeholder="Enter materials" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="duration">Project Duration (weeks):</label>
+                    <input type="number" id="duration" name="duration" placeholder="Enter duration" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="workers">Number of Workers:</label>
+                    <input type="number" id="workers" name="workers" placeholder="Enter workers count" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="season">Predicted Seasons:</label>
+                    <input type="text" id="season" name="season" placeholder="Enter predicted season" required>
+                </div>
+
+                <h2>Construction Checklist (First Two Weeks)</h2>
+                <div class="checklist">
+                    <h3>Week 1</h3>
+                    <ul>
+                        <li>
+                            <input type="checkbox" id="week1-task1">
+                            <label for="week1-task1">Task 1 - Site Preparation</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="week1-task2">
+                            <label for="week1-task2">Task 2 - Material Delivery</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="week1-task3">
+                            <label for="week1-task3">Task 3 - Worker Allocation</label>
+                        </li>
+                    </ul>
+
+                    <h3>Week 2</h3>
+                    <ul>
+                        <li>
+                            <input type="checkbox" id="week2-task1">
+                            <label for="week2-task1">Task 1 - Foundation Work</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="week2-task2">
+                            <label for="week2-task2">Task 2 - Sustainable Materials Application</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="week2-task3">
+                            <label for="week2-task3">Task 3 - Initial Inspections</label>
+                        </li>
+                    </ul>
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <section id="output" class="output-section"></section>
+    </div>
+
+    <!-- <script src="script.js"></script> -->
+</body>
+</html>

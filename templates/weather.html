@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfraCare Weather Advisor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2f5d62;
+            --secondary: #c9e8e0;
+            --accent: #5e8b7e;
+            --dark: #1e3d42;
+            --light: #f5f7fa;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--light) 0%, var(--secondary) 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .main-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .logo-icon {
+            font-size: 36px;
+            color: var(--primary);
+        }
+
+        .logo-text {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+
+        .tagline {
+            font-size: 18px;
+            color: var(--accent);
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .mission-section {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid var(--accent);
+        }
+
+        .section-title {
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mission-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .mission-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .mission-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .mission-card i {
+            font-size: 24px;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .mission-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .search-container {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .search-title {
+            font-size: 22px;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+
+        .search-form {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        input[type="text"] {
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            flex: 1;
+            min-width: 250px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: var(--accent);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(94, 139, 126, 0.2);
+        }
+
+        button[type="submit"] {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        button[type="submit"]:hover {
+            background: var(--dark);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 30px 15px;
+            }
+            
+            .mission-section {
+                padding: 20px;
+            }
+            
+            .search-container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="header">
+            <div class="logo">
+                <i class="fas fa-hard-hat logo-icon"></i>
+                <div class="logo-text">InfraCare</div>
+            </div>
+            <div class="tagline">Smart Weather Solutions for Smarter Construction</div>
+        </div>
+
+        <div class="mission-section">
+            <h2 class="section-title">
+                <i class="fas fa-bullseye"></i> Our Weather Prediction Mission
+            </h2>
+            <p>At InfraCare, we're revolutionizing construction planning through precise weather intelligence. Our system combines real-time meteorological data with construction-specific algorithms to help you build smarter, safer, and more efficiently.</p>
+            
+            <div class="mission-points">
+                <div class="mission-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Safety First</h3>
+                    <p>Prevent weather-related accidents by anticipating dangerous conditions before they impact your site.</p>
+                </div>
+                
+                <div class="mission-card">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Optimal Scheduling</h3>
+                    <p>Plan critical construction activities during ideal weather windows to maximize productivity.</p>
+                </div>
+                
+                <div class="mission-card">
+                    <i class="fas fa-rupee-sign"></i>
+                    <h3>Cost Efficiency</h3>
+                    <p>Reduce weather-related delays and material waste that can inflate project budgets.</p>
+                </div>
+                
+                <div class="mission-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Sustainable Building</h3>
+                    <p>Minimize environmental impact by timing material usage and energy-intensive work appropriately.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="search-container">
+            <h3 class="search-title">
+                <i class="fas fa-search-location"></i> Check Construction Weather for Your Site
+            </h3>
+            <form method="post" class="search-form">
+                {% csrf_token %}
+                <input type="text" name="city" placeholder="Enter city or project location" required>
+                <button type="submit">
+                    <i class="fas fa-cloud-sun-rain"></i> Analyze Weather
+                </button>
+            </form>
+        </div>
+
+        <!-- Weather Results & Construction Advisory -->
+        {% if recommendation or weather_data %}
+            <div class="results-container" style="margin-top: 30px; background: white; border-radius: 15px; padding: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.08);">
+                
+                <!-- Advisory Recommendation Banner -->
+                {% if recommendation %}
+                    <div style="padding: 15px 20px; border-radius: 10px; margin-bottom: 25px; background-color: var(--secondary); color: var(--dark); font-weight: 600; font-size: 16px; border-left: 5px solid var(--primary);">
+                        <i class="fas fa-hard-hat" style="color: var(--primary); margin-right: 8px;"></i>
+                        <strong>Advisory:</strong> {{ recommendation }}
+                    </div>
+                {% endif %}
+
+                <!-- Detailed Weather Metrics -->
+                {% if weather_data %}
+                    <div style="text-align: center; margin-bottom: 25px;">
+                        <h2 style="color: var(--primary); margin-bottom: 5px;">
+                            <i class="fas fa-map-marker-alt"></i> {{ weather_data.name }}, {{ weather_data.sys.country }}
+                        </h2>
+                        <p style="text-transform: capitalize; color: var(--accent); font-weight: 600; margin: 0;">
+                            {{ weather_data.weather.0.description }}
+                        </p>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; text-align: center;">
+                        <div style="background: var(--light); padding: 15px; border-radius: 10px;">
+                            <i class="fas fa-temperature-high" style="font-size: 22px; color: var(--accent);"></i>
+                            <p style="margin: 5px 0 0; font-size: 13px; color: #666;">Temperature</p>
+                            <h4 style="margin: 5px 0 0; font-size: 18px; color: var(--dark);">{{ weather_data.main.temp }}°C</h4>
+                        </div>
+
+                        <div style="background: var(--light); padding: 15px; border-radius: 10px;">
+                            <i class="fas fa-temperature-low" style="font-size: 22px; color: var(--accent);"></i>
+                            <p style="margin: 5px 0 0; font-size: 13px; color: #666;">Feels Like</p>
+                            <h4 style="margin: 5px 0 0; font-size: 18px; color: var(--dark);">{{ weather_data.main.feels_like }}°C</h4>
+                        </div>
+
+                        <div style="background: var(--light); padding: 15px; border-radius: 10px;">
+                            <i class="fas fa-tint" style="font-size: 22px; color: var(--accent);"></i>
+                            <p style="margin: 5px 0 0; font-size: 13px; color: #666;">Humidity</p>
+                            <h4 style="margin: 5px 0 0; font-size: 18px; color: var(--dark);">{{ weather_data.main.humidity }}%</h4>
+                        </div>
+
+                        <div style="background: var(--light); padding: 15px; border-radius: 10px;">
+                            <i class="fas fa-wind" style="font-size: 22px; color: var(--accent);"></i>
+                            <p style="margin: 5px 0 0; font-size: 13px; color: #666;">Wind Speed</p>
+                            <h4 style="margin: 5px 0 0; font-size: 18px; color: var(--dark);">{{ weather_data.wind.speed }} m/s</h4>
+                        </div>
+                    </div>
+                {% endif %}
+
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

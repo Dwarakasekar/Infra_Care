@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InfraCare Advisor</title>
+  <style>
+    :root {
+      --primary-color: #1a3b3a;
+      --secondary-color: #c9e8e0;
+      --accent-color: #15514f;
+      --light-bg: #e8f1f0;
+      --card-bg: #d3e5e3;
+      --water-bg: #e0f0ff;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      background-color: var(--secondary-color);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 15px;
+      color: var(--primary-color);
+      line-height: 1.5;
+    }
+    
+    h1, h2, h3 {
+      color: var(--accent-color);
+    }
+    
+    h1 {
+      font-size: 1.8rem;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+    
+    h3 {
+      font-size: 1.2rem;
+      margin: 15px 0 8px 0;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: var(--light-bg);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(26, 59, 58, 0.2);
+    }
+    
+    section {
+      margin-bottom: 30px;
+      padding: 15px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .water-proximity {
+      background-color: var(--water-bg);
+      border-left: 4px solid #2a7fff;
+    }
+    
+    ul {
+      padding-left: 20px;
+    }
+    
+    li {
+      margin-bottom: 8px;
+    }
+    
+    label {
+      display: block;
+      margin: 15px 0 8px 0;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #6aa19a;
+      font-size: 1rem;
+      background: white;
+    }
+    
+    .radio-group {
+      margin: 15px 0;
+    }
+    
+    .radio-option {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+    
+    input[type="radio"] {
+      margin-right: 10px;
+      width: 18px;
+      height: 18px;
+    }
+    
+    button {
+      background-color: var(--primary-color);
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 15px;
+      width: 100%;
+      font-weight: 600;
+    }
+    
+    button:hover {
+      background-color: var(--accent-color);
+    }
+    
+    .result {
+      background: var(--card-bg);
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+      display: none;
+    }
+    
+    .water-warning {
+      color: #d32f2f;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+    
+    .result-section {
+      margin-top: 20px;
+      padding-top: 15px;
+      border-top: 1px dashed #6aa19a;
+    }
+    
+    /* Responsive adjustments */
+    @media (min-width: 600px) {
+      body {
+        padding: 20px;
+      }
+      
+      .container {
+        padding: 30px;
+      }
+      
+      section {
+        padding: 25px;
+      }
+      
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      h2 {
+        font-size: 1.6rem;
+      }
+    }
+    
+    @media (min-width: 768px) {
+      .two-columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>InfraCare Advisor</h1>
+
+    <!-- Main Form -->
+    <section id="main-form">
+      <h2>Project Information</h2>
+      
+      <!-- Water Proximity Section -->
+      <div class="water-proximity">
+        <h3>Water Proximity</h3>
+        <p>Is your construction site near any water bodies?</p>
+        <div class="radio-group">
+          <div class="radio-option">
+            <input type="radio" id="none" name="water_proximity" value="none" checked />
+            <label for="none">No significant water bodies nearby</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="ocean" name="water_proximity" value="ocean" />
+            <label for="ocean">Ocean/Sea coast (within 1km)</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="river" name="water_proximity" value="river" />
+            <label for="river">River/Lake (within 500m)</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="flood" name="water_proximity" value="flood" />
+            <label for="flood">Flood-prone area</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Construction Type -->
+      <h3>Construction Type</h3>
+      <div class="radio-group">
+        <div class="radio-option">
+          <input type="radio" id="villa" name="construction_type" value="villa" required />
+          <label for="villa">Villa</label>
+        </div>
+        <div class="radio-option">
+          <input type="radio" id="flats" name="construction_type" value="flats" />
+          <label for="flats">Flats/Apartments</label>
+        </div>
+        <div class="radio-option">
+          <input type="radio" id="company" name="construction_type" value="company" />
+          <label for="company">Company/Office</label>
+        </div>
+        <div class="radio-option">
+          <input type="radio" id="individual_home" name="construction_type" value="individual_home" />
+          <label for="individual_home">Individual Home</label>
+        </div>
+      </div>
+
+      <!-- Construction Area -->
+      <label for="area">Construction Area (sq ft):</label>
+      <input
+        type="number"
+        id="area"
+        name="area"
+        min="100"
+        max="10000"
+        placeholder="e.g. 1200"
+        required
+      />
+
+      <button id="submit-btn" type="button">Get Recommendations</button>
+    </section>
+
+    <!-- Results Container (initially hidden) -->
+    <div id="results-container" style="display: none;">
+      <section id="general-recommendations" class="result">
+        <h2>General Recommendations</h2>
+        <div id="general-content"></div>
+      </section>
+
+      <section id="water-recommendations" class="result water-proximity">
+        <h2>Water Proximity Recommendations</h2>
+        <div id="water-content"></div>
+      </section>
+
+      <section id="material-quantities" class="result">
+        <h2>Estimated Material Quantities</h2>
+        <div id="quantities-content"></div>
+      </section>
+
+      <section id="cost-estimate" class="result">
+        <h2>Cost Estimate</h2>
+        <div id="cost-content"></div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    // Material data
+    const materialsData = {
+      villa: { 
+        'Bamboo (bags)': 0.5, 
+        'Recycled Steel (tons)': 0.05, 
+        'Fly Ash Concrete (cubic yards)': 1.2 
+      },
+      flats: { 
+        'Bamboo (bags)': 0.6, 
+        'Recycled Steel (tons)': 0.07, 
+        'Fly Ash Concrete (cubic yards)': 1.5 
+      },
+      company: { 
+        'Bamboo (bags)': 0.7, 
+        'Recycled Steel (tons)': 0.1, 
+        'Fly Ash Concrete (cubic yards)': 1.7 
+      },
+      individual_home: { 
+        'Bamboo (bags)': 0.4, 
+        'Recycled Steel (tons)': 0.04, 
+        'Fly Ash Concrete (cubic yards)': 1.0 
+      },
+    };
+
+    // Water proximity recommendations
+    const waterMaterialTips = {
+      none: [
+        "Standard sustainable materials can be used without special modifications"
+      ],
+      ocean: [
+        "Marine-grade stainless steel (316 grade) recommended instead of regular steel",
+        "Pressure-treated or composite materials instead of untreated wood",
+        "Fiber-reinforced polymers (FRP) for corrosion resistance",
+        "Salt-resistant concrete mixes with pozzolanic additives",
+        "Elevate structures above potential storm surge levels",
+        "Use corrosion-resistant fasteners and hardware"
+      ],
+      river: [
+        "Flood-resistant materials like concrete or masonry recommended",
+        "Elevate electrical systems above potential flood levels",
+        "Closed-cell insulation materials that resist water absorption",
+        "Removable wall panels for flood-prone areas",
+        "Water-resistant adhesives and sealants",
+        "Consider waterproof membranes for foundations"
+      ],
+      flood: [
+        "ICF (Insulated Concrete Forms) strongly recommended for walls",
+        "Elevate entire structure above base flood elevation",
+        "Install flood vents in foundation walls",
+        "Ceramic or porcelain tile flooring instead of wood",
+        "Water-resistant rigid foam insulation",
+        "Elevate all mechanical systems (HVAC, water heater)"
+      ]
+    };
+
+    // Material costs
+    const materialCosts = {
+      'Bamboo': 50,
+      'Recycled Steel': 70,
+      'Fly Ash Concrete': 55,
+      'Reclaimed Wood': 60,
+      'Low-VOC Paints': 20,
+      'Insulated Concrete Forms': 65,
+      'Marine-Grade Steel': 85,
+      'Water-Resistant Concrete': 60
+    };
+
+    // Main submission handler
+    document.getElementById('submit-btn').addEventListener('click', function() {
+      // Get form values
+      const waterType = document.querySelector('input[name="water_proximity"]:checked').value;
+      const constructionType = document.querySelector('input[name="construction_type"]:checked')?.value;
+      const area = parseFloat(document.getElementById('area').value);
+
+      // Validate inputs
+      if (!constructionType) {
+        alert('Please select a construction type');
+        return;
+      }
+      
+      if (isNaN(area) || area <= 0) {
+        alert('Please enter a valid construction area');
+        return;
+      }
+
+      // Show results container
+      document.getElementById('results-container').style.display = 'block';
+
+      // Generate recommendations
+      generateGeneralRecommendations(constructionType);
+      generateWaterRecommendations(waterType);
+      generateMaterialQuantities(constructionType, waterType, area);
+      generateCostEstimate(constructionType, waterType, area);
+
+      // Scroll to results
+      document.getElementById('results-container').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    function generateGeneralRecommendations(type) {
+      const generalTips = {
+        villa: [
+          "Bamboo is excellent for villa structures due to its flexibility and aesthetic appeal",
+          "Consider large windows for natural lighting to reduce energy costs",
+          "Use reclaimed wood for interior finishes to add character"
+        ],
+        flats: [
+          "Recycled steel provides strong framing for multi-story buildings",
+          "Fly ash concrete offers excellent fire resistance for shared walls",
+          "Consider soundproofing materials between units"
+        ],
+        company: [
+          "ICF construction provides excellent energy efficiency for office spaces",
+          "Consider modular construction techniques to reduce waste",
+          "Use durable materials in high-traffic areas"
+        ],
+        individual_home: [
+          "Bamboo and reclaimed wood create warm, natural aesthetics",
+          "Smaller footprint allows for more premium sustainable materials",
+          "Consider passive solar design principles"
+        ]
+      };
+
+      let html = `<h3>For ${type.replace('_', ' ').toUpperCase()}:</h3><ul>`;
+      generalTips[type].forEach(tip => {
+        html += `<li>${tip}</li>`;
+      });
+      html += '</ul>';
+
+      document.getElementById('general-content').innerHTML = html;
+      document.getElementById('general-recommendations').style.display = 'block';
+    }
+
+    function generateWaterRecommendations(waterType) {
+      const tips = waterMaterialTips[waterType];
+      
+      let html = `<h3>For ${waterType.toUpperCase()} areas:</h3><ul>`;
+      tips.forEach(tip => {
+        html += `<li>${tip}</li>`;
+      });
+      html += '</ul>';
+
+      document.getElementById('water-content').innerHTML = html;
+      document.getElementById('water-recommendations').style.display = waterType === 'none' ? 'none' : 'block';
+    }
+
+    function generateMaterialQuantities(type, waterType, area) {
+      const recs = materialsData[type];
+      let html = `<h3>Estimated quantities for ${area} sq ft:</h3><ul>`;
+      
+      for (const [material, qtyPerSqFt] of Object.entries(recs)) {
+        let totalQty = qtyPerSqFt * area;
+        let materialName = material;
+        
+        // Adjust for water proximity
+        if (waterType === 'ocean' && material.includes('Steel')) {
+          materialName = 'Marine-Grade Steel (tons)';
+          totalQty *= 1.1; // Slightly more due to density
+        }
+        else if ((waterType === 'river' || waterType === 'flood') && material.includes('Concrete')) {
+          materialName = 'Water-Resistant Concrete (cubic yards)';
+        }
+        else if (waterType === 'flood' && material.includes('Wood')) {
+          totalQty *= 0.3; // Dramatically reduce wood in flood zones
+        }
+        
+        html += `<li>${materialName}: ${totalQty.toFixed(2)}</li>`;
+      }
+      
+      html += '</ul>';
+      
+      if (waterType !== 'none') {
+        html += `<p class="water-warning">Quantities adjusted for ${waterType} conditions</p>`;
+      }
+
+      document.getElementById('quantities-content').innerHTML = html;
+      document.getElementById('material-quantities').style.display = 'block';
+    }
+
+    function generateCostEstimate(type, waterType, area) {
+      const recs = materialsData[type];
+      let totalCost = 0;
+      let costBreakdown = '<h3>Cost Breakdown:</h3><ul>';
+
+      for (const [material, qtyPerSqFt] of Object.entries(recs)) {
+        let materialName = material.split(' (')[0];
+        let costPerSqFt = materialCosts[materialName];
+        let quantity = qtyPerSqFt * area;
+        
+        // Adjust for water proximity
+        if (waterType === 'ocean' && materialName === 'Recycled Steel') {
+          materialName = 'Marine-Grade Steel';
+          costPerSqFt = materialCosts[materialName];
+        }
+        else if ((waterType === 'river' || waterType === 'flood') && materialName === 'Fly Ash Concrete') {
+          materialName = 'Water-Resistant Concrete';
+          costPerSqFt = materialCosts[materialName];
+        }
+        
+        const materialCost = costPerSqFt * quantity;
+        totalCost += materialCost;
+        
+        costBreakdown += `<li>${materialName}: $${materialCost.toLocaleString()}</li>`;
+      }
+      
+      // Add water premium if applicable
+      let premiumMessage = '';
+      if (waterType !== 'none') {
+        const premiumPercentage = waterType === 'ocean' ? 15 : 10;
+        const premiumAmount = totalCost * (premiumPercentage/100);
+        totalCost += premiumAmount;
+        premiumMessage = `<p class="water-warning">Includes ${premiumPercentage}% premium ($${premiumAmount.toLocaleString()}) for water-resistant construction</p>`;
+      }
+      
+      costBreakdown += `</ul><h3>Total Estimated Cost: $${totalCost.toLocaleString()}</h3>`;
+      costBreakdown += premiumMessage;
+
+      document.getElementById('cost-content').innerHTML = costBreakdown;
+      document.getElementById('cost-estimate').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

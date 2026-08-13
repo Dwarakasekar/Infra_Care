@@ -1,0 +1,124 @@
+/* General styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container styling */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header styling */
+header h1 {
+    font-size: 2.5rem;
+    color: #226060;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+/* Form Section Styling */
+.form-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.form-section h2 {
+    color: #2a4d4e;
+    font-size: 1.75rem;
+    margin-bottom: 20px;
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 1rem;
+    color: #2a4d4e;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    transition: border 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+    border-color: #226060;
+}
+
+/* Checklist Styling */
+.checklist ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.checklist li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.checklist input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #226060;
+    margin-top: 20px;
+}
+
+/* Button Styling */
+button {
+    display: inline-block;
+    background-color: #226060;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1.25rem;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #174e4c;
+}
+
+/* Output Section Styling */
+.output-section {
+    background-color: #e8f4f4;
+    padding: 20px;
+    border-radius: 15px;
+    display: none; /* Hidden initially */
+}
+
+.output-section h3 {
+    font-size: 1.5rem;
+    color: #226060;
+    margin-bottom: 10px;
+}
+
+.output-section p {
+    font-size: 1rem;
+    color: #2a4d4e;
+}

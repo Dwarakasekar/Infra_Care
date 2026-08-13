@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+     {% load static %}
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    <script src="{% static 'js/script.js' %}" defer></script>
+</head>
+<body>
+    <nav>
+        <ul class="menu">
+            <li class="logo">
+                <!-- change the name of logo according to your name of image (mani/vengu) -->
+                <a href="#"><img src="{% static 'imgs/logo.png' %}" alt="Infra-care Logo" style="height: 40px;"></a>
+            </li>
+            <li class="item"><a href="/Home">Home</a></li>
+            <li class="item"><a href="/About">About us</a></li>
+            <li class="item"><a href="">Blogs</a></li>
+            <li class="item">
+                <select name="Services" onchange="window.location.href=this.value;">
+                    <option value="" disabled selected>Select Service</option>
+                    <option value="{% url 'client' %}">Client</option>
+                    <option value="{% url 'org' %}">Org</option>
+                </select>                
+            </li>
+            
+            <li class="item"><a href="">Crew</a></li>
+            <!-- <li class="toggle" id="menu-toggle"><span class="bars"></span></li> -->
+            <li class="item button"><a href="">Log In</a></li>
+            <li class="toggle" id="menu-toggle">
+                <!-- Hamburger Icon -->
+                <span class="bars"></span>
+        </ul>
+    </nav>
+
+    <section class="about-section">
+        <h2>ABOUT IC AND OUR WAY</h2>
+        <div class="about-content">
+            <p>
+                <strong>Infra care</strong> – application aims to achieve a connective gap between clients and construction organizers,
+                then predicts perfect season time by using GIS for construction works according to their surroundings.
+                Augmented reality (AR) enhances construction planning by overlaying digital information on real-world environments,
+                allowing for better visualization of projects. Offering a comprehensive, intelligent solution that integrates
+                real-time data, advanced analytics, and community involvement to drive truly sustainable construction practices.
+
+                <br>
+                <br>
+                It is designed to enhance sustainability in the construction domain by promoting eco-friendly building practices. 
+                The platform offers guidance on using renewable materials and energy-efficient construction techniques tailored to each project’s location and environmental impact. 
+                By tracking project timelines and providing sustainability growth ideas, Infra-Care helps organizations minimize their carbon footprint while optimizing resource use. 
+                It also provides real-time updates and recommendations for disaster preparedness, ensuring that construction practices are resilient and future-proof. 
+                Through collaboration and communication features, Infra-Care fosters a community-driven approach to sustainable development in construction.
+            </p>
+            <img src="{% static 'imgs/about_eg.jpg' %}" alt="Infrastructure planning">
+        </div>
+    </section>
+    
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <h2>PROBLEM WE HAVE FACED</h2>
+        <div class="problem-content">
+            <img src="{% static 'imgs/about_eg1.jpg' %}" alt="Environmental Issues">
+            <p>
+                Rapid increase in construction activities and urbanization poses a significant threat to natural resources and wildlife habitat.
+                This unsustainable development trajectory could lead to irreversible environmental degradation, loss of biodiversity, and drastic climatic changes.
+                <br>
+                <br>
+                According to United Nations Environment Programme (UNEP), "the increased construction activities and urbanization 
+                will increase waste which will eventually destroy natural resources and wild life habitats over 70% of land surface from now up to 2032. 
+                "Moreover, construction uses around half of natural resources that humans consume. Production and transport of building materials 
+                consumes 25 - 50 percent of all energy used (depending on the country considered).
+            </p>
+        </div>
+    </section>
+    
+    <!-- Core Values Section -->
+    <section class="values-section">
+        <h2>PASSION. INTEGRITY. HARD WORK. PROFESSIONALISM. CARING.</h2>
+        <p>
+            These core values have been with us since the beginning, and they’ve infused who we are and how we build.
+            Nothing brings us more excitement than transforming the skyline – and we do it by setting our standards high,
+            striving for the best, building trust, and lifting up the people around us.
+        </p>
+    </section>
+</body>
+</html>

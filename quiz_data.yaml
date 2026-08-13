@@ -1,0 +1,174 @@
+- model: sustain.quiz
+  pk: 1
+  fields:
+    name: Sustainability and Biodiversity
+
+- model: sustain.question
+  pk: 1
+  fields:
+    quiz: 1
+    text: What is the main goal of sustainable development?
+
+- model: sustain.answer
+  pk: 1
+  fields:
+    question: 1
+    text: To meet the needs of the present without compromising the ability of future generations to meet their own needs.
+    is_correct: true
+
+- model: sustain.answer
+  pk: 2
+  fields:
+    question: 1
+    text: To maximize economic growth at any environmental cost.
+    is_correct: false
+
+- model: sustain.answer
+  pk: 3
+  fields:
+    question: 1
+    text: To promote industrialization and urbanization without considering environmental impacts.
+    is_correct: false
+
+- model: sustain.answer
+  pk: 4
+  fields:
+    question: 1
+    text: To focus solely on reducing poverty and inequality.
+    is_correct: false
+
+- model: sustain.question
+  pk: 2
+  fields:
+    quiz: 1
+    text: What is biodiversity?
+
+- model: sustain.answer
+  pk: 5
+  fields:
+    question: 2
+    text: The variety of life in the world or in a particular habitat or ecosystem.
+    is_correct: true
+
+- model: sustain.answer
+  pk: 6
+  fields:
+    question: 2
+    text: The number of different species in a single area.
+    is_correct: false
+
+- model: sustain.answer
+  pk: 7
+  fields:
+    question: 2
+    text: The total number of living organisms on Earth.
+    is_correct: false
+
+- model: sustain.answer
+  pk: 8
+  fields:
+    question: 2
+    text: The study of how to cultivate plants and animals.
+    is_correct: false
+
+- model: sustain.question
+  pk: 3
+  fields:
+    quiz: 1
+    text: Which of the following practices can help promote sustainability?
+
+- model: sustain.answer
+  pk: 9
+  fields:
+    question: 3
+    text: Reducing waste and recycling materials.
+    is_correct: true
+
+- model: sustain.answer
+  pk: 10
+  fields:
+    question: 3
+    text: Using single-use plastics.
+    is_correct: false
+
+- model: sustain.answer
+  pk: 11
+  fields:
+    question: 3
+    text: Ignoring renewable energy sources.
+    is_correct: false
+
+- model: sustain.answer
+  pk: 12
+  fields:
+    question: 3
+    text: Expanding urban areas without planning.
+    is_correct: false
+
+- model: sustain.question
+  pk: 4
+  fields:
+    quiz: 1
+    text: How does deforestation impact biodiversity?
+
+- model: sustain.answer
+  pk: 13
+  fields:
+    question: 4
+    text: It increases biodiversity by creating more habitats.
+    is_correct: false
+
+- model: sustain.answer
+  pk: 14
+  fields:
+    question: 4
+    text: It has no impact on biodiversity.
+    is_correct: false
+
+- model: sustain.answer
+  pk: 15
+  fields:
+    question: 4
+    text: It decreases biodiversity by destroying habitats and ecosystems.
+    is_correct: true
+
+- model: sustain.answer
+  pk: 16
+  fields:
+    question: 4
+    text: It improves soil quality and encourages more species.
+    is_correct: false
+
+- model: sustain.question
+  pk: 5
+  fields:
+    quiz: 1
+    text: Which of the following is a renewable energy source?
+
+- model: sustain.answer
+  pk: 17
+  fields:
+    question: 5
+    text: Solar energy.
+    is_correct: true
+
+- model: sustain.answer
+  pk: 18
+  fields:
+    question: 5
+    text: Natural gas.
+    is_correct: false
+
+- model: sustain.answer
+  pk: 19
+  fields:
+    question: 5
+    text: Coal.
+    is_correct: false
+
+- model: sustain.answer
+  pk: 20
+  fields:
+    question: 5
+    text: Oil.
+    is_correct: false

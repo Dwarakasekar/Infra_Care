@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/support.css' %}">
+    <script defer src="{% static 'js/support.js' %}"></script>
+    <title>Customer Support</title>
+    <link rel="icon" href="icon.png"> <!-- Replace with your icon file -->
+</head>
+<body>
+    <header>
+        <h1>Customer Support</h1>
+        <p>Your reliable partner in project tracking and sustainable practices!</p>
+    </header>
+    <main>
+        <section id="call-support">
+            <h2><img src="{% static 'imgs/customer_org.webp' %}" alt="Call Icon"> Call Support</h2> <!-- Replace with your icon file -->
+            <p>If you have any questions or need immediate assistance, please do not hesitate to contact our support team:</p>
+            <button onclick="makeCall()">Call Now</button>
+        </section>
+
+        <section id="inquiry-form">
+            <h2><img src="{% static 'imgs/descrip.jpg' %}" alt="Inquiry Icon"> Project Tracking Inquiry</h2> <!-- Replace with your icon file -->
+            <form id="trackingForm">
+                <label for="projectId">Project ID:</label>
+                <input type="text" id="projectId" placeholder="Enter your project ID" required>
+                
+                <label for="customerName">Your Name:</label>
+                <input type="text" id="customerName" placeholder="Enter your name" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" placeholder="Your message or inquiry" required></textarea>
+                
+                <button type="submit">Submit Inquiry</button>
+            </form>
+        </section>
+
+        <section id="weather-notifications">
+            <h2><img src="{% static 'imgs/weather_org.jpg' %}" alt="Weather Icon"> Weather Notifications</h2> <!-- Replace with your icon file -->
+            <p>Stay informed about unpredictable weather conditions or floods that may affect your projects. We provide updates 1-2 weeks in advance to help you prepare.</p>
+            <p>Check back regularly for the latest notifications!</p>
+        </section>
+
+        <section id="materials-required">
+            <h2><img src="{% static 'imgs/materials.png' %}" alt="Materials Icon"> Materials Required</h2> <!-- Replace with your icon file -->
+            <p>To ensure a smooth project experience, here is a list of essential materials you may need:</p>
+            <ul>
+                <li>Eco-friendly cement</li>
+                <li>Recycled steel</li>
+                <li>Sustainable timber</li>
+                <li>Insulation materials (made from recycled products)</li>
+                <li>Water-saving fixtures</li>
+            </ul>
+            <p>For more specific project requirements, please consult with our support team.</p>
+        </section>
+
+        <section id="sustainable-practices">
+            <h2><img src="{% static 'imgs/energy.webp' %}" alt="Sustainability Icon"> Commitment to Sustainability</h2> <!-- Replace with your icon file -->
+            <p>At Infra-Care, we are dedicated to promoting sustainable practices in all our projects:</p>
+            <ul>
+                <li>Utilizing eco-friendly materials that minimize environmental impact.</li>
+                <li>Implementing water conservation techniques to preserve vital resources.</li>
+                <li>Promoting renewable energy sources to reduce carbon footprint.</li>
+            </ul>
+        </section>
+    </main>
+    <!-- <script src="xx.js"></script> -->
+</body>
+</html>

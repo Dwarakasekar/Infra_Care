@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% load static%}
+  <title>Create Project</title>
+  <link rel="stylesheet" href="{% static 'css/create.css' %}">
+  <script src="{% static 'js/script1.js} %" defer></script>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Create Sustainable Project</h1>
+      <p>Ensure your construction project aligns with environmental goals and sustainability. Fill in the details below to get started.</p>
+    </header>
+
+    <form id="create-project-form">
+      <!-- Project Title -->
+      <section class="form-section">
+        <div class="section-header">
+          <img src="{% static 'imgs/title.png' %}" alt="Title Icon" class="section-icon">
+          <h2>Project Title</h2>
+        </div>
+        <p>Provide a clear and concise title for your construction project. This will help identify it in future reports.</p>
+        <input type="text" id="project-title" placeholder="Enter project title">
+      </section>
+
+      <!-- Project Description -->
+      <section class="form-section">
+        <div class="section-header">
+          <img src="{% static 'imgs/descrip.jpg' %}" alt="Description Icon" class="section-icon">
+          <h2>Project Description</h2>
+        </div>
+        <p>Describe the key details of your project, including the scope, goals, and any unique environmental considerations.</p>
+        <textarea id="project-description" placeholder="Brief description of the project"></textarea>
+      </section>
+
+      <!-- Project Location -->
+      <section class="form-section">
+        <div class="section-header">
+          <img src="{% static 'imgs/loc.png' %}" alt="Location Icon" class="section-icon">
+          <h2>Project Location</h2>
+        </div>
+        <p>Select the project location to assess its proximity to natural resources or environmental risks.</p>
+        <input type="text" id="location" placeholder="Enter project location">
+      </section>
+
+      <!-- Sustainable Materials -->
+      <section class="form-section">
+        <div class="section-header">
+          <img src="{% static 'imgs/materials.png' %}" alt="Materials Icon" class="section-icon">
+          <h2>Sustainable Materials</h2>
+        </div>
+        <p>Choose materials that have minimal environmental impact and promote sustainability in construction.</p>
+        <select id="materials">
+          <option value="recycled-steel">Recycled Steel</option>
+          <option value="bamboo">Bamboo</option>
+          <option value="low-emission-paint">Low-emission Paint</option>
+          <option value="low-carbon-material">Low-carbon material</option>
+          <option value="Biodegradable-material">Biodegradable material</option>
+          <option value="sustainable-textiles">sustainable textiles</option>
+        </select>
+      </section>
+
+      <!-- Renewable Energy Source -->
+      <section class="form-section">
+        <div class="section-header">
+          <img src="{% static 'imgs/energy.webp' %}" alt="Energy Icon" class="section-icon">
+          <h2>Renewable Energy Source</h2>
+        </div>
+        <p>Opt for renewable energy sources to power your project and reduce your carbon footprint.</p>
+        <select id="energy">
+          <option value="solar">Solar</option>
+          <option value="wind">Wind</option>
+          <option value="geothermal">Geothermal</option>
+          <option value="Hydro">Hydro Energy</option>
+          <option value="Bio-Mass">Bio-Mass Energy</option>
+          <option value="Hydrogen">Hydrogen Energy</option>
+          <option value="ocean-tidal">Ocean and Tidal Energy</option>
+          <option value="landfill-gas">landfill gas Energy</option>
+        </select>
+      </section>
+
+      <!-- Environmental Factors -->
+      <section class="form-section">
+        <div class="section-header">
+          <img src="{% static 'imgs/env.jpg' %}" alt="Environment Icon" class="section-icon">
+          <h2>Environmental Factors</h2>
+        </div>
+        <p>Indicate if the project is near eco-sensitive areas such as water bodies or forests. This helps assess risks.</p>
+        <div class="checkbox-group">
+          <label><input type="checkbox" id="proximity-water" value="water"> Near water bodies</label>
+          <label><input type="checkbox" id="proximity-forest" value="forest"> Near forests</label>
+        </div>
+      </section>
+
+      <!-- Sustainability Score -->
+      <section class="form-section">
+        <div class="section-header">
+          <img src="{% static 'imgs/score.jpg' %}" alt="Score Icon" class="section-icon">
+          <h2>Sustainability Score</h2>
+        </div>
+        <p>Track your project's sustainability performance with the score based on selected materials and processes.</p>
+        <div id="sustainability-score">
+          <progress id="score-progress" value="60" max="100"></progress>
+          <span id="score-text">60%</span>
+        </div>
+      </section>
+
+      <!-- Submit Button -->
+      <div class="form-section">
+        <button type="submit">Submit Project</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

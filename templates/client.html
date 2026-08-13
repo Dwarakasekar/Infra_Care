@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/client.css' %}">
+    <!-- <link rel="stylesheet" href="script.js">
+    <script defer src="script.js"></script>  -->
+    <script src="{% static 'js/script.js' %}" defer></script>
+    <title>Client</title>
+</head>
+<body>
+    <nav>
+        <ul class="menu">
+            <li class="logo">
+                <!-- change the name of logo according to your name of image (mani/vengu) -->
+                <a href="#"><img src="{% static 'imgs/logo3.png' %}" alt="Infra-care Logo" style="height: 40px;"></a>
+            </li>
+            <li class="item"><a href="/Home">Home</a></li>
+            <li class="item"><a href="/About">About us</a></li>
+            <li class="item"><a href="">Blogs</a></li>
+            <li class="item">
+                <select name="Services" onchange="window.location.href=this.value;">
+                    <option value="" disabled selected>Select Service</option>
+                    <option value="{% url 'client' %}">Client</option>
+                    <option value="{% url 'org' %}">Org</option>
+                </select>                
+            </li>
+            
+            <li class="item"><a href="">Crew</a></li>
+            <!-- <li class="toggle" id="menu-toggle"><span class="bars"></span></li> -->
+            <li class="item button"><a href="">Log In</a></li>
+            <li class="toggle" id="menu-toggle">
+                <!-- Hamburger Icon -->
+                <span class="bars"></span>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <img src="{% static 'imgs/service_eg.jpg' %}" alt="Green Building">
+        <div class="hero-text">
+            <h6>
+                Your vision matters to us. We're here to support, guide, and ensure your project’s success every step of the way.
+            </h6>
+        </div>
+    </section>
+
+    <section class="features">
+        <h2>OUR FEATURES & SERVICES FOR CLIENT</h2>
+        <div class="features-grid">
+            <div class="feature-box">
+                <a href="{% url 'track_project' %}">
+                    <button class="feature-btn">
+                        <img src="{% static 'imgs/track_client.jpg' %}" alt="Track Project">
+                        <p>Track Project</p>
+                    </button>
+                </a>
+            </div>
+            
+            
+
+            <div class="feature-box">
+                <a href="{% url 'chatbot' %}">
+                <button class="feature-btn" onclick="window.location.href='/chat/'">
+                    <img src="{% static 'imgs/chatbot_client.png' %}" alt="Chatbot">
+                    <p>Chatbot</p>
+                </button>
+                </a>
+            </div>
+            
+            <div class="feature-box">
+              <a href="{% url 'advisor_home' %}">
+                <button class="feature-btn" type="button">
+                <img src="{% static 'imgs/ar_org.png' %}" alt="Advisor Icon">
+                <p>Advisor</p>
+                </button>
+               </a>
+            </div>
+
+
+            <!-- <div class="feature-box">
+                <button class="feature-btn">
+                    <img src="{% static 'imgs/customer_org.webp' %}" alt="Customer support">
+                    <p>Customer Support</p>
+                </button>
+            </div> -->
+
+            <div class="feature-box">
+                <a href="{% url 'customer_support' %}">
+                    <button class="feature-btn">
+                        <img src="{% static 'imgs/customer_org.webp' %}" alt="Customer support">
+                        <p>Org Support</p>
+                    </button>
+                </a>
+            </div>
+            
+<!--             
+            <div class="feature-box">
+                <button class="feature-btn">
+                    <img src="{% static 'imgs/blog_org.png' %}" alt="Create Blogs">
+                    <p>Learn About Sustain</p>
+                </button>
+            </div> -->
+            
+            <div class="feature-box">
+                <a href="{% url 'start' %}">
+                    <button class="feature-btn">
+                        <img src="{% static 'imgs/blog_org.png' %}" alt="Create Blogs">
+                        <p>LAS</p>
+                    </button>
+                </a>
+            </div>
+            
+            
+            
+            <!-- <div class="feature-box">
+                <button class="feature-btn">
+                    <img src="{% static 'imgs/weather_org.jpg' %}" alt="Predict Climate for Project">
+                    <p>Predict Climate for construction</p>
+                </button>
+            </div> -->
+            <div class="feature-box">
+                <a href="{% url 'weather' %}">
+                    <button class="feature-btn">
+                        <img src="{% static 'imgs/weather_org.jpg' %}" alt="Predict Climate for Project">
+                        <p>Forecast</p>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </section> 
+</body>
+</html>
